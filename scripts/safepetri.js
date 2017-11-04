@@ -1,12 +1,18 @@
 let inPetriChannel = false;
 function checkIfInPetri() {
+  let messagesContainer = document.getElementById('messages_container');
   if (activeChannelNameButton && activeChannelNameButton.innerText === '#petri') {
     if (!inPetriChannel) {
       inPetriChannel = true;
-      alert('in petri channel');
+      if (messagesContainer) {
+        messagesContainer.classList.add('petri');
+      }
     }
   } else {
     inPetriChannel = false;
+    if (messagesContainer) {
+      messagesContainer.classList.remove('petri');
+    }
   }
 }
 
@@ -43,7 +49,6 @@ const pageBuildObserver = new MutationObserver((records) => {
 });
 pageBuildObserver.observe(document.querySelector('html'), {
   childList: true,
-  subtree: true,
-  attributes: true
+  subtree: true
 });
 checkIfInPetri();

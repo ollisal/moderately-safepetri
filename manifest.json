@@ -11,6 +11,9 @@
       "js": [
         "scripts/safepetri.js"
       ],
+      "css": [
+        "styles/safepetri.css"
+      ],
       "run_at": "document_start",
       "all_frames": true
     }

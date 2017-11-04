@@ -1,0 +1,23 @@
+.petri .image_preserve_aspect_ratio .image_bg::after, .petri .file_preview_preserve_aspect_ratio::after, .coverup, .petri .file_container.generic_container::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    z-index: 2806;
+    background-color: transparent !important;
+
+    transition: backdrop-filter 0.4s ease;
+}
+
+.image_preserve_aspect_ratio .image_bg:hover::after, .file_preview_preserve_aspect_ratio:hover::after, .file_container.generic_container:hover::after {
+    backdrop-filter: blur(0px);
+}
+
+.petri .file_container.generic_container::after {
+    height: calc(100% - 50px);
+}
