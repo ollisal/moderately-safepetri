@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+
+  "name": "Moderately Safe#Petri",
+  "description": "Might make #petri channel moderately safer for work. Or not.",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["https://vincit.slack.com/*"],
+      "js": [
+        "scripts/safepetri.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
