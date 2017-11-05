@@ -21,3 +21,17 @@
 .petri .file_container.generic_container::after {
     height: calc(100% - 50px);
 }
+
+.petri-webcam {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    height: 240px;
+    z-index: 1000;
+    opacity: 0.5;
+}
+
+.petri-webcam .original-webcam {
+    display: none;
+}

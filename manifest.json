@@ -9,18 +9,19 @@
     {
       "matches": ["https://vincit.slack.com/*"],
       "js": [
+        "node_modules/jsfeat/build/jsfeat.js",
+        "node_modules/jsfeat/cascades/bbf_face.js",
         "scripts/safepetri.js"
       ],
       "css": [
         "styles/safepetri.css"
       ],
-      "run_at": "document_start",
+      "run_at": "document_end",
       "all_frames": true
     }
   ],
 
   "permissions": [
-    "activeTab",
-    "storage"
+    "activeTab"
   ]
 }
