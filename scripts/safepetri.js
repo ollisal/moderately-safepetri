@@ -121,6 +121,8 @@ function demo_app(videoWidth, videoHeight) {
   jsfeat.bbf.prepare_cascade(jsfeat.bbf.face_cascade);
 }
 
+let lastTimeTwoFaces = null;
+
 function tick() {
   window.requestAnimationFrame(tick);
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
@@ -142,6 +144,16 @@ function tick() {
 
     // draw only most confident one and maybe some other
     draw_faces(ctx, rects, canvasWidth/img_u8.cols, 2);
+
+    if (rects.length >= 2) {
+      lastTimeTwoFaces = Date.now();
+    }
+
+    if (Date.now() - lastTimeTwoFaces < 3000) {
+      document.querySelector('body').classList.add('petri-spectators');
+    } else {
+      document.querySelector('body').classList.remove('petri-spectators');
+    }
   }
 }
 

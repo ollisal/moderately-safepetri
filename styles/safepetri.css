@@ -35,3 +35,8 @@
 .petri-webcam .original-webcam {
     display: none;
 }
+
+.petri-spectators .petri #msgs_scroller_div {
+    opacity: 0.5;
+    background-color: red;
+}
