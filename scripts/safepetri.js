@@ -122,6 +122,7 @@ function demo_app(videoWidth, videoHeight) {
 }
 
 let lastTimeTwoFaces = null;
+let formerPetriScrollPos = null;
 
 function tick() {
   window.requestAnimationFrame(tick);
@@ -149,10 +150,20 @@ function tick() {
       lastTimeTwoFaces = Date.now();
     }
 
+    const scrollerElem = document.getElementById('msgs_scroller_div');
     if (Date.now() - lastTimeTwoFaces < 3000) {
+      if (inPetriChannel && formerPetriScrollPos === null && scrollerElem) {
+        formerPetriScrollPos = scrollerElem.scrollTop;
+      }
+
       document.querySelector('body').classList.add('petri-spectators');
     } else {
       document.querySelector('body').classList.remove('petri-spectators');
+
+      if (inPetriChannel && formerPetriScrollPos !== null) {
+        scrollerElem.scrollTop = formerPetriScrollPos;
+        formerPetriScrollPos = null;
+      }
     }
   }
 }
